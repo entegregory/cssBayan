@@ -1,0 +1,137 @@
+<html>
+
+<body>
+    <div class="app">
+        <h1>CSS Bayan</h1>
+        <div class="tab">
+            <label>
+                Tokyo the best city
+                <input type="radio" name="group" checked />
+                <span class="checkmark"></span>
+                <div class="tab-content">
+                    <img src="images/tokyo.jpg" />
+                </div>
+            </label>
+        </div>
+        <div class="tab">
+            <label>
+                Kyoto the best city
+                <input type="radio" name="group" />
+                <span class="checkmark"></span>
+                <div class="tab-content">
+                    <img src="images/Kyoto.jpg" />
+                </div>
+            </label>
+        </div>
+        <div class="tab">
+            <label>
+                Osaka the best city
+                <input type="radio" name="group" />
+                <span class="checkmark"></span>
+                <div class="tab-content">
+                    <img src="images/Osaka.jpg" />
+                </div>
+            </label>
+        </div>
+        <div class="tab">
+            <label>
+                Kanazawa the best city
+                <input type="radio" name="group" />
+                <span class="checkmark"></span>
+                <div class="tab-content">
+                    <img src="images/Kanazawa.jpg" />
+                </div>
+            </label>
+        </div>
+        <div class="tab">
+            <label>
+                Naoshima the best city
+                <input type="radio" name="group" />
+                <span class="checkmark"></span>
+                <div class="tab-content">
+                    <img src="images/Naoshima.jpg" />
+                </div>
+            </label>
+        </div>
+    </div>
+</body>
+
+<style>
+    body {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .app {
+        width: 50vw;
+    }
+
+    .tab {
+        position: relative;
+
+        border-top: 0.1rem solid #ccc;
+    }
+
+    .tab label {
+        display: inline-block;
+        padding: 1rem 0;
+        width: 100%;
+        font-size: x-large;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    .tab label:active {
+        color: blue;
+    }
+
+    .tab-content {
+        display: flex;
+        justify-content: center;
+        height: 0;
+        padding-top: 1rem;
+        transition: 200ms;
+    }
+
+    .tab-content img {
+        height: 100%;
+    }
+
+    input {
+        position: absolute;
+        right: 0;
+        display: none;
+    }
+
+    .checkmark {
+        position: absolute;
+        top: 0.5rem;
+        right: 0;
+        font-weight: bolder;
+        font-size: xx-large;
+        content: '-';
+    }
+
+    input:checked~.tab-content {
+        height: 10rem;
+    }
+
+    @media (hover: hover) {
+        input:hover~.tab-content {
+            height: 10rem;
+        }
+
+        .app:hover input[type='radio']:not(:hover)+.checkmark::after,
+        .app:hover input[type='radio']:not(:checked)+.checkmark::after {
+            content: '+';
+        }
+
+        .app:hover input[type='radio']:hover+.checkmark::after,
+        .app:hover input[type='radio']:checked+.checkmark::after {
+            content: '-';
+        }
+    }
+</style>
+
+</html>
