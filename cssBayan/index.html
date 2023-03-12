@@ -2,6 +2,7 @@
 
 <body>
     <div class="app">
+        <h1>CSS Bayan</h1>
         <div class="tab">
             <label>
                 Tokyo the best city
@@ -13,7 +14,8 @@
             </label>
         </div>
         <div class="tab">
-            <label> Kyoto the best city
+            <label>
+                Kyoto the best city
                 <input type="radio" name="group" />
                 <span class="checkmark"></span>
                 <div class="tab-content">
@@ -67,21 +69,29 @@
 
     .tab {
         position: relative;
-        padding: 1rem 0;
+
         border-top: 0.1rem solid #ccc;
     }
 
     .tab label {
         display: inline-block;
+        padding: 1rem 0;
         width: 100%;
         font-size: x-large;
         font-weight: bold;
+        cursor: pointer;
+    }
+
+    .tab label:active {
+        color: blue;
     }
 
     .tab-content {
-        display: none;
+        display: flex;
+        justify-content: center;
+        height: 0;
         padding-top: 1rem;
-        height: 10rem;
+        transition: 200ms;
     }
 
     .tab-content img {
@@ -96,24 +106,31 @@
 
     .checkmark {
         position: absolute;
-        top: 4%;
+        top: 0.5rem;
         right: 0;
         font-weight: bolder;
         font-size: xx-large;
-        content: "-";
-    }
-
-    input[type="radio"]:not(:checked)+.checkmark::after {
-        content: "-";
-    }
-
-    input[type="radio"]:checked+.checkmark::after {
-        content: "+";
+        content: '-';
     }
 
     input:checked~.tab-content {
-        display: flex;
-        justify-content: center;
+        height: 10rem;
+    }
+
+    @media (hover: hover) {
+        input:hover~.tab-content {
+            height: 10rem;
+        }
+
+        .app:hover input[type='radio']:not(:hover)+.checkmark::after,
+        .app:hover input[type='radio']:not(:checked)+.checkmark::after {
+            content: '+';
+        }
+
+        .app:hover input[type='radio']:hover+.checkmark::after,
+        .app:hover input[type='radio']:checked+.checkmark::after {
+            content: '-';
+        }
     }
 </style>
 
